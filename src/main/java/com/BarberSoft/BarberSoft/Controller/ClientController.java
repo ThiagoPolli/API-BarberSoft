@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,6 +35,21 @@ public class ClientController {
 		return ResponseEntity.ok().body(clientDtos);
 	}
 	
+	//Buscar por ID
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Client> findById (@PathVariable Integer id) {
+		Client client = service.findByIdService(id);
+		return ResponseEntity.ok().body(client);
+	}
+	
+	//Atualizar 
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Client> update(@RequestBody ClientDTO dto, @PathVariable Integer id){
+		Client client = service.fromDto(dto);
+		client.setId(id);
+		client = service.updateService(client);
+		return ResponseEntity.noContent().build();
+	}
 	
 	//Inserir Novo Cliente
 	@RequestMapping(method = RequestMethod.POST)

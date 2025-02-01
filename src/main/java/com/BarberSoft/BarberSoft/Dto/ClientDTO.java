@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import com.BarberSoft.BarberSoft.Entities.Client;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ClientDTO implements Serializable{
 
@@ -13,6 +14,8 @@ public class ClientDTO implements Serializable{
 	private String name;
 	private String phone;
 	private String email;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
 	
 	
