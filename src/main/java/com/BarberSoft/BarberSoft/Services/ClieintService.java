@@ -32,6 +32,15 @@ public class ClieintService {
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Client.class.getName()));
 	}
 	
+	public List<Client> searchNameService(String name){
+		return repository.searchName("%"+name+"%");
+	}
+	
+	public Client searchPhoneService(String phone) {
+		Client client = repository.searchPhone(phone);
+		
+		return client;
+	}
 	
 	@Transactional
 	public Client insertService(Client obj) {

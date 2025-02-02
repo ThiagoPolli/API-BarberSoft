@@ -6,12 +6,18 @@ import java.util.Date;
 import com.BarberSoft.BarberSoft.Entities.Client;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public class ClientDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
+	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String name;
+	
+	@NotEmpty(message = "{campo.fone.obrigatorio}")
 	private String phone;
 	private String email;
 	

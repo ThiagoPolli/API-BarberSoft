@@ -9,7 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+
 
 @Entity
 public class Client implements Serializable{
@@ -23,7 +23,6 @@ public class Client implements Serializable{
 	private String phone;
 	private String email;
 	
-	//@NotNull(message = "Campo nao pode ser nulo")
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
 	
