@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -42,6 +43,27 @@ public class BarberController {
 		
 		Barber barber = service.findByIdService(id);
 		return ResponseEntity.ok().body(barber);
+	}
+	
+	//Buscar por especialidade
+	@RequestMapping(value = "/search/specialty", method = RequestMethod.GET)
+	public ResponseEntity<List<Barber>> searchSpecialty(@RequestParam(value = "name", defaultValue = "") String specialty){
+		List<Barber> barbers = service.searchSpecialtyService(specialty);
+		return ResponseEntity.ok().body(barbers);
+	}
+	
+	//buscar po nome
+	@RequestMapping(value = "/search/name", method = RequestMethod.GET)
+	public ResponseEntity<List<Barber>> searchName(@RequestParam(value = "name", defaultValue = "") String name){
+		List<Barber> barbers = service.searchSNameService(name);
+		return ResponseEntity.ok().body(barbers);
+	}
+	
+	//Buscar por horario de trabalho 
+	@RequestMapping(value = "/search/workingHours", method = RequestMethod.GET)
+	public ResponseEntity<List<Barber>> searchWorkingHours(@RequestParam(value = "name", defaultValue = "") String workingHours){
+		List<Barber> barbers = service.searchWorkingHoursService(workingHours);
+		return ResponseEntity.ok().body(barbers);
 	}
 	
 	//Atualizar Barbeiro

@@ -57,6 +57,18 @@ public class BarberService {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	public List<Barber> searchSpecialtyService(String specialty){
+		return repository.searchSpecialty("%"+specialty+"%");
+	}
+	
+	public List<Barber> searchSNameService(String name){
+		return repository.searchSName("%"+name+"%");
+	}
+	
+	public List<Barber> searchWorkingHoursService(String workingHours){
+		return repository.searchSName(workingHours);
+	}
 
 
 	private void upadeteData(Barber barber, Barber obj) {
