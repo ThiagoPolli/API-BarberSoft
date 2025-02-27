@@ -25,5 +25,9 @@ public interface BarberRepository extends JpaRepository<Barber, Integer>{
 	@Transactional
 	@Query(value = "select * from Barber where workingHours like UPPER ( :workingHours ) ", nativeQuery = true)
 	public List<Barber> searchWorkingHours(@Param("workingHours") String specialty);
+	
+	@Transactional
+	@Query(value = "select * from Barber where commission like UPPER ( :commission ) ", nativeQuery = true)
+	public List<Barber> searchCommission(@Param("commission") String specialty);
 
 }

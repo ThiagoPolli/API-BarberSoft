@@ -67,7 +67,11 @@ public class BarberService {
 	}
 	
 	public List<Barber> searchWorkingHoursService(String workingHours){
-		return repository.searchSName(workingHours);
+		return repository.searchSName("%"+workingHours+"%");
+	}
+	
+	public List<Barber> searchCommissionService(String commission){
+		return repository.searchCommission("%"+commission+"%");
 	}
 
 

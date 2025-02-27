@@ -18,10 +18,12 @@ import com.BarberSoft.BarberSoft.Dto.ClientDTO;
 import com.BarberSoft.BarberSoft.Entities.Client;
 import com.BarberSoft.BarberSoft.Services.ClieintService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "api/client")
+@Tag(name = "Client", description = "Client APIs")
 public class ClientController {
 	
 	@Autowired

@@ -18,10 +18,13 @@ import com.BarberSoft.BarberSoft.Dto.BarberDTO;
 import com.BarberSoft.BarberSoft.Entities.Barber;
 import com.BarberSoft.BarberSoft.Services.BarberService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping(value = "api/barber")
+@Tag(name = "Barber", description = "Barber APIs")
 public class BarberController {
 	
 	@Autowired
@@ -47,7 +50,7 @@ public class BarberController {
 	
 	//Buscar por especialidade
 	@RequestMapping(value = "/search/specialty", method = RequestMethod.GET)
-	public ResponseEntity<List<Barber>> searchSpecialty(@RequestParam(value = "name", defaultValue = "") String specialty){
+	public ResponseEntity<List<Barber>> searchSpecialty(@RequestParam(value = "specialty", defaultValue = "") String specialty){
 		List<Barber> barbers = service.searchSpecialtyService(specialty);
 		return ResponseEntity.ok().body(barbers);
 	}
@@ -61,10 +64,17 @@ public class BarberController {
 	
 	//Buscar por horario de trabalho 
 	@RequestMapping(value = "/search/workingHours", method = RequestMethod.GET)
-	public ResponseEntity<List<Barber>> searchWorkingHours(@RequestParam(value = "name", defaultValue = "") String workingHours){
+	public ResponseEntity<List<Barber>> searchWorkingHours(@RequestParam(value = "workingHours", defaultValue = "") String workingHours){
 		List<Barber> barbers = service.searchWorkingHoursService(workingHours);
 		return ResponseEntity.ok().body(barbers);
 	}
+	
+	//buscar po nome
+		@RequestMapping(value = "/search/commission", method = RequestMethod.GET)
+		public ResponseEntity<List<Barber>> searchcCommission(@RequestParam(value = "commission", defaultValue = "") String commission){
+			List<Barber> barbers = service.searchCommissionService(commission);
+			return ResponseEntity.ok().body(barbers);
+		}
 	
 	//Atualizar Barbeiro
 	@RequestMapping(value = "/{id}", method =  RequestMethod.PUT)
