@@ -56,7 +56,7 @@ public class ProductController {
 	
 	//Inserir um novo registro
 	@RequestMapping( method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody ProductDTO dto){
+	public ResponseEntity<Void> insert(@RequestBody  ProductDTO dto){
 		Product product = service.fromDto(dto);
 		System.out.println(dto);
 		product = service.insertService(product);

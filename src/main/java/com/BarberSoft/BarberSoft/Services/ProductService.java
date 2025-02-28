@@ -1,5 +1,6 @@
 package com.BarberSoft.BarberSoft.Services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +35,9 @@ public class ProductService {
 	@Transactional
 	public Product insertService(Product obj) {
 		try {
+			LocalDateTime data = LocalDateTime.now();
 			obj.setId(null);
+			obj.setCreatAtUpdate(data);
 			obj = repository.save(obj);
 			
 			return obj;
@@ -56,13 +59,15 @@ public class ProductService {
 	}
 
 	private void updateData(Product product, Product obj) {
+		LocalDateTime data = LocalDateTime.now();
 		product.setName(obj.getName());
 		product.setPrice(obj.getPrice());
 		product.setQtd(obj.getQtd());
+		product.setCreatAtUpdate(data);
 		
 	}
 	public Product fromDto(ProductDTO objDto) {
-		Product product = new Product(null, objDto.getName(), objDto.getPrice(), objDto.getQtd());
+		Product product = new Product(null, objDto.getName(), objDto.getPrice(), objDto.getQtd(), objDto.getCreatAtUpdate());
 		return product;
 	}
 
