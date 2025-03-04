@@ -1,4 +1,4 @@
-package com.BarberSoft.BarberSoft.Dto;
+package com.BarberSoft.BarberSoft.Dto.Payment;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -66,6 +66,5 @@ public class PaymentNewDTO implements Serializable {
 	public void setScheduling_id(Integer scheduling_id) {
 		this.scheduling_id = scheduling_id;
 	}
-
 	
 }

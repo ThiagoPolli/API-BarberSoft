@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.BarberSoft.BarberSoft.Dto.ClientDTO;
+import com.BarberSoft.BarberSoft.Dto.Client.ClientDTO;
 import com.BarberSoft.BarberSoft.Entities.Client;
 import com.BarberSoft.BarberSoft.Services.ClieintService;
 

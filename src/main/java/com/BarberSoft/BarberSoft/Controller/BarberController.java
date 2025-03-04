@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.BarberSoft.BarberSoft.Dto.BarberDTO;
+import com.BarberSoft.BarberSoft.Dto.Barber.BarberDTO;
 import com.BarberSoft.BarberSoft.Entities.Barber;
 import com.BarberSoft.BarberSoft.Services.BarberService;
 

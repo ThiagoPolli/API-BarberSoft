@@ -1,4 +1,4 @@
-package com.BarberSoft.BarberSoft.Dto;
+package com.BarberSoft.BarberSoft.Dto.ServiceType;
 
 import java.io.Serializable;
 

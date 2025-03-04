@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.BarberSoft.BarberSoft.Dto.ServiceTypeDTO;
+import com.BarberSoft.BarberSoft.Dto.ServiceType.ServiceTypeDTO;
 import com.BarberSoft.BarberSoft.Entities.ServiceType;
 import com.BarberSoft.BarberSoft.Services.ServiceTypeService;
 

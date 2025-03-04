@@ -1,4 +1,4 @@
-package com.BarberSoft.BarberSoft.Dto;
+package com.BarberSoft.BarberSoft.Dto.Product;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

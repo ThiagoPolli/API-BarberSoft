@@ -1,8 +1,8 @@
-package com.BarberSoft.BarberSoft.Dto;
+package com.BarberSoft.BarberSoft.Dto.Scheduling;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
+import com.BarberSoft.BarberSoft.Dto.Barber.BarberClientDTO;
 import com.BarberSoft.BarberSoft.Entities.Barber;
 import com.BarberSoft.BarberSoft.Entities.Client;
 import com.BarberSoft.BarberSoft.Entities.Scheduling;
@@ -17,7 +17,7 @@ public class SchedulingDTO implements Serializable {
 	private LocalDateTime dateAndTime;
 	private String status;
 	private Client client;
-	private Barber barber;
+	private BarberClientDTO barber;
 	private ServiceType serviceType;
 
 	public SchedulingDTO() {
@@ -30,11 +30,19 @@ public class SchedulingDTO implements Serializable {
 		dateAndTime = obj.getDateAndTime();
 		status = obj.getStatus();
 		client = obj.getClient();
-		barber = obj.getBarber();
+		barber = new BarberClientDTO(obj.getBarber().getId(), obj.getBarber().getName(), obj.getBarber().getSpecialty());
 		serviceType = obj.getServiceType();
 				
 	}
-
+	
+    public SchedulingDTO(Integer id, LocalDateTime dateAndTime, String status, Client client, Barber barber, ServiceType serviceType) {
+        this.id = id;
+        this.dateAndTime = dateAndTime;
+        this.status = status;
+        this.client = client;
+        this.barber = new BarberClientDTO(barber.getId(),barber.getName(), barber.getSpecialty()); 
+        this.serviceType = serviceType;
+    }
 	public Integer getId() {
 		return id;
 	}
@@ -67,11 +75,11 @@ public class SchedulingDTO implements Serializable {
 		this.client = client;
 	}
 
-	public Barber getBarber() {
+	public BarberClientDTO getBarber() {
 		return barber;
 	}
 
-	public void setBarber(Barber barber) {
+	public void setBarber(BarberClientDTO barber) {
 		this.barber = barber;
 	}
 

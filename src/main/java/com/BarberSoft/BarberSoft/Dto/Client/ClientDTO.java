@@ -1,4 +1,4 @@
-package com.BarberSoft.BarberSoft.Dto;
+package com.BarberSoft.BarberSoft.Dto.Client;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.BarberSoft.BarberSoft.Dto.SchedulingDTO;
-import com.BarberSoft.BarberSoft.Dto.SchedulingNewDTO;
+
+import com.BarberSoft.BarberSoft.Dto.Scheduling.SchedulingDTO;
+import com.BarberSoft.BarberSoft.Dto.Scheduling.SchedulingNewDTO;
 import com.BarberSoft.BarberSoft.Entities.Scheduling;
 import com.BarberSoft.BarberSoft.Services.SchedulingService;
 
@@ -35,8 +36,8 @@ public class SchedulingController {
 	
 	//Buscar por ID
 	@GetMapping("/{id}")
-	public ResponseEntity<Scheduling> findById(@PathVariable Integer id){
-		Scheduling scheduling = service.findByIdService(id);
+	public ResponseEntity<SchedulingDTO> findById(@PathVariable Integer id){
+		SchedulingDTO scheduling = service.findByIdService(id);
 		return ResponseEntity.ok().body(scheduling);
 	}
 	

@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.BarberSoft.BarberSoft.Dto.ClientDTO;
+import com.BarberSoft.BarberSoft.Dto.Client.ClientDTO;
 import com.BarberSoft.BarberSoft.Entities.Client;
 import com.BarberSoft.BarberSoft.Repositories.ClientRepository;
 import com.BarberSoft.BarberSoft.Services.Exception.ObjectNotFoundException;

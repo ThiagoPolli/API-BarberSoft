@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import com.BarberSoft.BarberSoft.Dto.SchedulingNewDTO;
+
+import com.BarberSoft.BarberSoft.Dto.Scheduling.SchedulingDTO;
+import com.BarberSoft.BarberSoft.Dto.Scheduling.SchedulingNewDTO;
 import com.BarberSoft.BarberSoft.Entities.Barber;
 import com.BarberSoft.BarberSoft.Entities.Client;
-import com.BarberSoft.BarberSoft.Entities.Product;
 import com.BarberSoft.BarberSoft.Entities.Scheduling;
 import com.BarberSoft.BarberSoft.Entities.ServiceType;
 import com.BarberSoft.BarberSoft.Repositories.SchedulingRepository;
@@ -38,10 +39,24 @@ public class SchedulingService {
 		return repository.findAll();
 	}
 	
-	
-	public Scheduling findByIdService(Integer id) {
-		Optional<Scheduling> scheduling = repository.findById(id);
-		return scheduling.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " +id+ ", Tipo: "+ Product.class.getName()));
+	public Scheduling findById(Integer id) {
+	    Optional<Scheduling> scheduling = repository.findById(id);
+
+	    return scheduling.orElseThrow(() -> 
+	        new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Scheduling.class.getName())
+	    );
+
+	    
+	}
+
+	public SchedulingDTO findByIdService(Integer id) {
+	    Optional<Scheduling> scheduling = repository.findById(id);
+
+	    Scheduling entity = scheduling.orElseThrow(() -> 
+	        new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Scheduling.class.getName())
+	    );
+
+	    return new SchedulingDTO(entity); // Retornando o DTO em vez da entidade completa
 	}
 	
 	@Transactional
